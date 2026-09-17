@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching – Jason Kang</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --muted: #555555;
+    --link: #1a4a8a;
+    --link-hover: #0d2f5e;
+    --rule: #dddddd;
+    --section-gap: 1.6rem;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  html { overflow-y: scroll; }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 5rem;
+  }
+
+  /* ── Nav ── */
+  .site-nav {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .site-nav a {
+    margin: 0 1.1rem;
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .site-nav a.active {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .site-nav a:hover { color: var(--ink); }
+
+  /* ── Section headings ── */
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin-bottom: 1rem;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .section { margin-bottom: var(--section-gap); }
+
+  /* ── Course list ── */
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 640px;
+    margin: 0 auto;
+    gap: 0.2rem;
+  }
+
+  .course {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .course:last-child { border-bottom: none; }
+
+  .course-title {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 0.15rem;
+  }
+
+  .course-meta {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  /* Slides toggle button */
+  .slides-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    padding: 0.1rem 0;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-family: Helvetica, Arial, sans-serif;
+    transition: color 0.15s;
+  }
+
+  .slides-btn:hover { color: var(--link); }
+
+  .slides-btn .tri {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid currentColor;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .course.open .slides-btn .tri {
+    transform: rotate(90deg);
+  }
+
+  /* Slides expand panel */
+  .slides-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.32s ease;
+  }
+
+  .course.open .slides-body { grid-template-rows: 1fr; }
+
+  .slides-body-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .slides-links {
+    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .slides-links a {
+    font-size: 0.93rem;
+    color: var(--link);
+    text-decoration: none;
+  }
+
+  .slides-links a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="teaching.html" class="active">Teaching</a>
+  </nav>
+
+  <!-- BBA -->
+  <div class="section">
+    <h2>Fall 2026</h2>
+    <div class="course-list">
+
+      <div class="course">
+        <div class="course-title">Financial Analysis and Decision Making</div>
+        <div class="course-meta">BBA · SKEMA Business School</div>
+        <button class="slides-btn" onclick="toggleCourse(this)" aria-label="Show slides">
+          <span class="tri"></span> Slides
+        </button>
+        <div class="slides-body"><div class="slides-body-inner">
+          <div class="slides-links">
+            <!-- Replace # with the real file paths or URLs to your slides -->
+<!--             <a href="#" target="_blank">Lecture 1 – Introduction</a>
+            <a href="#" target="_blank">Lecture 2 – Financial Statements</a>
+            <a href="#" target="_blank">Lecture 3 – Capital Budgeting</a> -->
+          </div>
+        </div></div>
+      </div>
+
+
+        <div class="course">
+        <div class="course-title">Derivatives</div>
+        <div class="course-meta">PGE · SKEMA Business School</div>
+        <button class="slides-btn" onclick="toggleCourse(this)" aria-label="Show slides">
+          <span class="tri"></span> Slides
+        </button>
+        <div class="slides-body"><div class="slides-body-inner">
+          <div class="slides-links">
+            <a href="Teaching/DFI/dfi_session_1.pdf" target="_blank">Session 1</a>
+            <a href="Teaching/DFI/dfi_session_2.pdf" target="_blank">Session 2 & 3</a>
+            <!-- <a href="#" target="_blank">Lecture 3 – Futures and Forwards</a> -->
+          </div>
+        </div></div>
+      </div>
+
+      <div class="course">
+        <div class="course-title">Corporate Finance</div>
+        <div class="course-meta">PGE · SKEMA Business School</div>
+        <button class="slides-btn" onclick="toggleCourse(this)" aria-label="Show slides">
+          <span class="tri"></span> Slides
+        </button>
+        <div class="slides-body"><div class="slides-body-inner">
+          <div class="slides-links">
+<!--             <a href="#" target="_blank">Lecture 1 – Capital Structure</a>
+            <a href="#" target="_blank">Lecture 2 – Valuation</a>
+            <a href="#" target="_blank">Lecture 3 – M&A</a> -->
+          </div>
+        </div></div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+
+</div>
+
+<script>
+  function toggleCourse(btn) {
+    btn.closest('.course').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
